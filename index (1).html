@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>سياسات تسليم | Tasleem Policies</title>
+  <!-- Google Fonts: IBM Plex Sans Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Ionicons CDN (الإصدار 7.1) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.1.0/css/ionicons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #f2f6f9;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2e8f0;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0c6679;
+      border-radius: 10px;
+    }
+
+    .app-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 16px 40px 16px;
+    }
+
+    /* ===== الهيدر ===== */
+    .header {
+      background-color: #fff;
+      border-radius: 28px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e8edf2;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    /* شعار الصورة - يمكنك استبدال الرابط بشعارك */
+    .logo-image {
+      height: 70px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+    }
+    /* في حال عدم وجود صورة، سيظهر النص البديل */
+    .logo-text-fallback {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0c6679;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-store {
+      background-color: #f0f9fa;
+      padding: 6px 14px;
+      border-radius: 40px;
+      border: 1px solid #d4eef3;
+    }
+    .badge-store span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0c6679;
+    }
+    .badge-store ion-icon {
+      font-size: 14px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Hero card */
+    .hero-policy {
+      background: linear-gradient(120deg, #0c6679, #0e7e94);
+      border-radius: 28px;
+      padding: 24px 22px;
+      margin-bottom: 28px;
+      color: white;
+      box-shadow: 0 12px 24px rgba(12,102,121,0.2);
+    }
+    .hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-title ion-icon {
+      font-size: 30px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .hero-sub {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-top: 8px;
+    }
+    .last-update {
+      margin-top: 16px;
+      background: rgba(255,255,255,0.18);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* شبكة البطاقات */
+    .policies-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* بطاقات السياسات */
+    .policy-card {
+      background-color: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e8edf2;
+    }
+    .policy-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.06);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px;
+      background-color: #fafdff;
+      border-bottom: 1.5px solid #eef3f6;
+    }
+    .card-header ion-icon {
+      font-size: 32px;
+      color: #0c6679;
+      background: #e4f3f6;
+      padding: 8px;
+      border-radius: 18px;
+    }
+    .card-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0c2e36;
+    }
+    .policy-body {
+      padding: 20px 22px;
+    }
+    .policy-section {
+      margin-bottom: 24px;
+    }
+    .policy-section h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0c6679;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-right: 3px solid #0c6679;
+      padding-right: 12px;
+    }
+    .policy-section h3 ion-icon {
+      font-size: 18px;
+      color: #0c6679;
+    }
+    .policy-section p, .policy-section li {
+      font-size: 14px;
+      color: #2c3e42;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+    .policy-section ul, .policy-section ol {
+      padding-right: 28px;
+      margin: 12px 0;
+    }
+    .policy-section li {
+      margin-bottom: 6px;
+    }
+    .highlight-box {
+      background-color: #f0f9fa;
+      border-radius: 18px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-right: 4px solid #0c6679;
+    }
+    .fee-table {
+      background: #f8fafc;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+    .fee-row:last-child {
+      border-bottom: none;
+    }
+    .fee-label {
+      font-weight: 600;
+      color: #2c3e42;
+    }
+    .fee-value {
+      font-weight: 700;
+      color: #0c6679;
+    }
+    .contact-block {
+      background: #f2f6f9;
+      border-radius: 20px;
+      padding: 16px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .contact-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      padding: 8px 18px;
+      border-radius: 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .btn-copy {
+      background: none;
+      border: none;
+      font-size: 14px;
+      color: #0c6679;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .footer-note {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #7c8b95;
+      border-top: 1px solid #e2edf2;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .app-container {
+        padding: 12px;
+      }
+      .card-header {
+        padding: 14px 18px;
+      }
+      .policy-body {
+        padding: 16px 18px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .logo-image {
+        height: 55px;
+      }
+    }
+    button, a {
+      cursor: pointer;
+    }
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- Header مع شعار (يمكنك وضع الصورة في نفس المجلد) -->
+  <div class="header">
+    <div class="logo-area">
+      <!-- 
+        🔵🔵🔵 رفع الشعار: ضع ملف الشعار (logo.png أو logo.svg) في نفس مجلد ملف HTML
+        ثم غير اسم الملف أدناه حسب اسم صورتك.
+        مثال: <img src="logo.png" alt="تسليم" class="logo-image">
+      -->
+      <img src="logo.png" alt="تسليم" class="logo-image" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'logo-text-fallback\'><ion-icon name=\'cube-outline\' style=\'font-size:28px;\'></ion-icon> تسليم</div>';">
+    </div>
+    <div class="badge-store">
+      <ion-icon name="shield-checkmark-outline"></ion-icon>
+      <span>سياسات المنصة</span>
+    </div>
+  </div>
+
+  <!-- بطاقة تعريفية بالسياسات -->
+  <div class="hero-policy">
+    <div class="hero-title">
+      <ion-icon name="document-text-outline"></ion-icon> 
+      الشروط والسياسات
+    </div>
+    <div class="hero-sub">
+      مرحباً بك في منصة تسليم — رؤية واضحة تضمن حقوق التاجر والزبون. تابع قراءة السياسات الخاصة بالتطبيق.
+    </div>
+    <div class="last-update">
+      <ion-icon name="calendar-outline" style="font-size: 12px;"></ion-icon> آخر تحديث: مايو 2026
+    </div>
+  </div>
+
+  <div class="policies-grid">
+    
+    <!-- 1️⃣ شروط الاستخدام -->
+    <div class="policy-card">
+      <div class="card-header">
+        <ion-icon name="scale-outline"></ion-icon>
+        <h2>شروط الاستخدام</h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-section">
+          <h3><ion-icon name="information-circle-outline"></ion-icon> مقدمة</h3>
+          <p>باستخدامك لتطبيق "تسليم"، فأنت توافق على الالتزام بهذه الشروط. المنصة عراقية متخصصة بنظام الدروب شيبينج، وتوفر بيئة آمنة للتجار والزبائن.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="person-outline"></ion-icon> التسجيل والحساب</h3>
+          <ul>
+            <li>يجب أن يكون عمر التاجر 18 سنة فأكثر.</li>
+            <li>التاجر مسؤول عن الحفاظ على سرية بيانات حسابه، ولا يسمح بمشاركتها.</li>
+            <li>تسليم تحتفظ بالحق في تعليق أو إلغاء الحساب المخالف للشروط.</li>
+          </ul>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="business-outline"></ion-icon> التزامات التاجر</h3>
+          <p>تقديم معلومات صحيحة، التواصل باحترام مع الزبائن، عدم الترويج لمنتجات خارج المنصة باستخدام اسم تسليم، وعدم استغلال التطبيق لأغراض غير قانونية.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="card-outline"></ion-icon> الخدمة والرسوم</h3>
+          <div class="highlight-box">
+            <ion-icon name="checkmark-circle-outline" style="margin-left: 8px;"></ion-icon> 
+            الاشتراك في منصة تسليم <strong>مجاني بالكامل</strong> بدون أي رسوم شهرية أو سنوية.
+          </div>
+          <p>ربح التاجر هو الفرق بين سعر الجملة (الذي تحدده تسليم) وسعر البيع الذي يحدده التاجر. تسليم غير مسؤولة عن الخسائر الناتجة عن تسعير خاطئ.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="alert-circle-outline"></ion-icon> حدود المسؤولية</h3>
+          <p>تسليم مسؤولة عن جودة المنتجات والتوصيل في الوقت المحدد. التاجر مسؤول عن التواصل مع الزبون وتسليمه معلومات الطلب. أي وعود خارج المنصة لا تعكس مسؤولية تسليم.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2️⃣ سياسة الخصوصية -->
+    <div class="policy-card">
+      <div class="card-header">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <h2>سياسة الخصوصية</h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-section">
+          <h3><ion-icon name="server-outline"></ion-icon> البيانات التي نجمعها</h3>
+          <ul>
+            <li>الاسم الكامل ورقم الهاتف وعنوان التاجر.</li>
+            <li>معلومات الماستر كارد لاستلام الأرباح.</li>
+            <li>بيانات الطلبات والمبيعات، وبيانات الجهاز ونظام التشغيل.</li>
+          </ul>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="analytics-outline"></ion-icon> كيفية استخدام البيانات</h3>
+          <p>إدارة حسابك ومعالجة طلبات السحب، إرسال إشعارات الطلبات، تحسين تجربة المستخدم، والتواصل بشأن التحديثات والعروض. نحن لا نبيع بياناتك مطلقاً.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="shield-half-outline"></ion-icon> حماية البيانات ومشاركتها</h3>
+          <p>تُخزن البيانات بخوادم مشفرة وآمنة. لا يمكن للموظفين الوصول لبيانات الماستر كارد كاملة. قد نشارك بعض البيانات مع شركات التوصيل لإتمام الطلبات أو الجهات القانونية عند الاقتضاء.</p>
+          <div class="highlight-box">
+            <ion-icon name="checkmark-done-outline"></ion-icon> يحق لك الاطلاع على بياناتك وتصحيحها أو طلب حذف حسابك عبر الدعم الفني.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3️⃣ سياسة الاسترجاع والاستبدال -->
+    <div class="policy-card">
+      <div class="card-header">
+        <ion-icon name="repeat-outline"></ion-icon>
+        <h2>سياسة الاسترجاع والاستبدال</h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-section">
+          <h3><ion-icon name="return-up-back-outline"></ion-icon> شروط الاسترجاع</h3>
+          <p>يحق للزبون استرجاع المنتج خلال <strong>3 أيام</strong> من تاريخ الاستلام بشرط أن يكون بحالته الأصلية غير مستعمل والتغليف كاملاً. في حال وجود عيب مصنعي أو تلف، يُستبدل أو يُعاد المبلغ مجاناً.</p>
+          <ul>
+            <li>لا يُقبل الاسترجاع بعد مرور 3 أيام.</li>
+            <li>المنتجات المستعملة أو البالة مهما كانت فئتها غير قابلة للاسترجاع.</li>
+          </ul>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="swap-horizontal-outline"></ion-icon> شروط الاستبدال</h3>
+          <p>يمكن استبدال المنتج خلال <strong>7 أيام</strong> بحالته الأصلية. إذا كان سبب الاستبدال تغيير الرأي، يتحمل الزبون تكاليف التوصيل، أما إذا كان عيباً مصنعياً فتكاليف الاستبدال على تسليم.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="call-outline"></ion-icon> طريقة تقديم الطلب</h3>
+          <div class="contact-block" style="background:#eef2f5;">
+            <div class="contact-phone">
+              <ion-icon name="call-outline"></ion-icon>
+              <span dir="ltr">07782784995</span>
+              <button class="btn-copy" onclick="copyPhoneNumber()">نسخ</button>
+            </div>
+            <span style="font-size:13px;">أرسل صورة أو فيديو للمنتج وسيتم الرد خلال 24 ساعة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4️⃣ سياسة التوصيل -->
+    <div class="policy-card">
+      <div class="card-header">
+        <ion-icon name="car-sport-outline"></ion-icon>
+        <h2>سياسة التوصيل</h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-section">
+          <h3><ion-icon name="map-outline"></ion-icon> مناطق التوصيل والمدة</h3>
+          <p>خدمة التوصيل تشمل جميع محافظات العراق بما فيها الأقضية والنواحي.</p>
+          <div class="fee-table">
+            <div class="fee-row"><span class="fee-label">داخل محافظة البصرة</span><span class="fee-value">1 – 2 يوم عمل</span></div>
+            <div class="fee-row"><span class="fee-label">باقي المحافظات</span><span class="fee-value">1 – 3 أيام عمل</span></div>
+          </div>
+          <p>قد تتأخر المدة في الحالات الطارئة أو العطل الرسمية مع إشعار مسبق.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="cash-outline"></ion-icon> أجور التوصيل</h3>
+          <div class="fee-table">
+            <div class="fee-row"><span class="fee-label">داخل محافظة البصرة</span><span class="fee-value">3,000 د.ع</span></div>
+            <div class="fee-row"><span class="fee-label">باقي المحافظات</span><span class="fee-value">5,000 د.ع</span></div>
+          </div>
+          <p>يرجى التأكد من دقة العنوان ورقم الهاتف. في حال رفض الزبون استلام الطلب بدون سبب، تُخصم تكلفة التوصيل من أرباح التاجر.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5️⃣ سياسة السحوبات -->
+    <div class="policy-card">
+      <div class="card-header">
+        <ion-icon name="wallet-outline"></ion-icon>
+        <h2>سياسة السحوبات</h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-section">
+          <h3><ion-icon name="card-outline"></ion-icon> شروط السحب</h3>
+          <p>يتم سحب الأرباح عبر <strong>الماستر كارد</strong> فقط. يجب إدخال البيانات الصحيحة في الحساب قبل طلب السحب. تسليم غير مسؤولة عن الأخطاء الناتجة عن بيانات خاطئة.</p>
+        </div>
+        <div class="policy-section">
+          <h3><ion-icon name="time-outline"></ion-icon> معالجة طلبات السحب</h3>
+          <p>يتم مراجعة الطلب من فريق تسليم، ويتم تحويل المبلغ خلال <strong>1 – 3 أيام عمل</strong> من تاريخ الموافقة. في حال وجود مشكلة يتم التواصل مع التاجر.</p>
+          <div class="highlight-box">
+            <ion-icon name="information-circle-outline"></ion-icon> تسليم تحتفظ بالحق في تعليق السحوبات مؤقتاً في حال الاشتباه بأي نشاط مخالف، مع الحفاظ على الأرباح الموثقة.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6️⃣ جهات الاتصال والدعم الفني -->
+    <div class="policy-card">
+      <div class="card-header">
+        <ion-icon name="headset-outline"></ion-icon>
+        <h2>الدعم الفني والتواصل</h2>
+      </div>
+      <div class="policy-body">
+        <div class="policy-section">
+          <p style="margin-bottom: 8px;">لأي استفسار أو شكوى أو طلب دعم، يمكنك التواصل عبر:</p>
+          <div class="contact-block" style="background:#f8fafc;">
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <div class="contact-phone">
+                <ion-icon name="call-outline"></ion-icon>
+                <span dir="ltr">07782784995</span>
+                <button class="btn-copy" onclick="copyPhoneNumber()">نسخ الرقم</button>
+              </div>
+              <div class="contact-phone">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+                <span>الدعم داخل التطبيق (قسم الدعم الفني)</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-center" style="margin-top: 12px;">جميع الحقوق محفوظة © تسليم 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <ion-icon name="shield-outline"></ion-icon> تطبيق تسليم – تجارة إلكترونية موثوقة في العراق
+  </div>
+</div>
+
+<script>
+  // وظيفة نسخ رقم الهاتف مع إشعار منبثق جميل
+  function copyPhoneNumber() {
+    const phone = "07782784995";
+    navigator.clipboard.writeText(phone).then(() => {
+      const toast = document.createElement('div');
+      toast.innerText = '📋 تم نسخ الرقم: ' + phone;
+      toast.style.position = 'fixed';
+      toast.style.bottom = '20px';
+      toast.style.left = '50%';
+      toast.style.transform = 'translateX(-50%)';
+      toast.style.backgroundColor = '#0c6679';
+      toast.style.color = '#fff';
+      toast.style.padding = '10px 20px';
+      toast.style.borderRadius = '40px';
+      toast.style.fontSize = '14px';
+      toast.style.fontWeight = '500';
+      toast.style.zIndex = '999';
+      toast.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2)';
+      toast.style.fontFamily = "'IBM Plex Sans Arabic', sans-serif";
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2000);
+    }).catch(() => {
+      alert("تعذر النسخ يدوياً، الرقم: " + phone);
+    });
+  }
+
+  // في حال وجود أي أزرار نسخ إضافية نربطها بنفس الوظيفة
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    if (!btn.hasAttribute('data-listener')) {
+      btn.setAttribute('data-listener', 'true');
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        copyPhoneNumber();
+      });
+    }
+  });
+</script>
+</body>
+</html>
